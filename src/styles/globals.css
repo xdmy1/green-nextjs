@@ -8,6 +8,9 @@
   body {
     @apply font-title;
   }
+  :root {
+    --radius: 0.5rem;
+  }
 }
 :root {
   --background: #ffffff;

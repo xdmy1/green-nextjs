@@ -1,7 +1,9 @@
+"use client";
 import React from 'react'
-import Logo from '/public/logo.png'
+import Logo from '/public/Logo.png'
 import Image from 'next/image'
-
+import { motion } from 'framer-motion'
+import { Popover } from '@headlessui/react'
 const Nav = () => {
   return (
     <div className='sticky top-0 z-10 backdrop-blur'>
@@ -17,8 +19,11 @@ const Nav = () => {
                 <li>About</li>
                 <li>Talk to Us</li>
                 </div>
-                <button className='hidden md:flex border px-4 py-2 rounded-full border-green-300 text-green-300'>Contact</button>
+                <motion.button
+                whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}
+                className='hidden md:flex border px-4 py-2 rounded-full border-green-300 text-green-300'>Contact</motion.button>
             </ul>
+            
         </nav>
     </div>
   )

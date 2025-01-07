@@ -1,60 +1,41 @@
-import { useState } from "react";
+import React from 'react'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
-interface FAQItemProps {
-  question: string;
-  answer: string;
+
+const Faq = () => {
+  return (
+    <div className='pb-32 px-5 lg:px-32 2xl:px-96 flex flex-col gap-10'>
+      <div>
+        <h1 className='text-center font-bold text-4xl'>FAQs</h1>
+      </div>
+      <Accordion type="single" collapsible>
+      <AccordionItem value="item-1">
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionContent>
+      Yes. It adheres to the WAI-ARIA design pattern.
+    </AccordionContent>
+  </AccordionItem>
+      <AccordionItem value="item-2">
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionContent>
+      Yes. It adheres to the WAI-ARIA design pattern.
+    </AccordionContent>
+  </AccordionItem>
+      <AccordionItem value="item-3">
+    <AccordionTrigger>Is it accessible?</AccordionTrigger>
+    <AccordionContent>
+      Yes. It adheres to the WAI-ARIA design pattern.
+    </AccordionContent>
+  </AccordionItem>
+      </Accordion>
+
+    </div>
+  )
 }
 
-const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="border-b border-gray-300 py-4 ">
-      <div
-        className="flex justify-between items-center cursor-pointer"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <h3 className="text-lg font-semibold text-white">{question}</h3>
-        <button className="text-white text-xl">
-          {isOpen ? "-" : "+"}
-        </button>
-      </div>
-      {isOpen && (
-        <p className="mt-2 text-white/80">
-          {answer}
-        </p>
-      )}
-    </div>
-  );
-};
-
-const FAQ: React.FC = () => {
-  const faqs: FAQItemProps[] = [
-    {
-      question: "What is Next.js?",
-      answer:
-        "Next.js is a React-based framework for building server-rendered or statically exported web applications.",
-    },
-    {
-      question: "What is Tailwind CSS?",
-      answer:
-        "Tailwind CSS is a utility-first CSS framework that allows you to style your HTML elements quickly and efficiently.",
-    },
-    {
-      question: "How do I integrate Tailwind with Next.js?",
-      answer:
-        "You can install Tailwind CSS in a Next.js project by running 'npm install tailwindcss postcss autoprefixer' and configuring it in your project.",
-    },
-  ];
-
-  return (
-    <div className="pb-32 px-5 lg:px-32 2xl:px-96">
-      <h1 className="text-3xl font-bold mb-6 text-center text-white">FAQs</h1>
-      {faqs.map((faq, index) => (
-        <FAQItem key={index} {...faq} />
-      ))}
-    </div>
-  );
-};
-
-export default FAQ;
+export default Faq
